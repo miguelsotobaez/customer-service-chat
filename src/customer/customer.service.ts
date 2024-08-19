@@ -4,11 +4,11 @@ import { CustomerServiceRepresentativeDto } from './dto/customer-service-represe
 @Injectable()
 export class CustomerService {
   private representatives: CustomerServiceRepresentativeDto[] = [
-    { id: 1, name: 'Alice', isAvailable: false },
+    { id: 1, name: 'Alice', isAvailable: true },
     { id: 2, name: 'Bob', isAvailable: false },
-    { id: 3, name: 'Charlie', isAvailable: false },
-    { id: 4, name: 'Alan', isAvailable: false },
-    { id: 5, name: 'Sophia', isAvailable: false },
+    { id: 3, name: 'Charlie', isAvailable: true },
+    { id: 4, name: 'Alan', isAvailable: true },
+    { id: 5, name: 'Sophia', isAvailable: true },
   ];
 
   getAvailableRepresentative(): CustomerServiceRepresentativeDto | null {
