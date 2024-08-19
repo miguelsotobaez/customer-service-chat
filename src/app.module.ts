@@ -11,15 +11,13 @@ import { HealthController } from './health/health.controller';
   imports: [
     ConfigModule.forRoot({
       load: [configuration],
-      isGlobal: true
-    }), 
+      isGlobal: true,
+    }),
     LoggerModule,
     TerminusModule,
-    CustomerModule, 
-    TopicsModule
+    CustomerModule,
+    TopicsModule,
   ],
-  controllers: [
-    HealthController
-  ],
+  controllers: [HealthController],
 })
 export class AppModule {}

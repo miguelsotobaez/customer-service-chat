@@ -37,7 +37,9 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     this.logger.error(message, exception, request.headers);
 
-    const isDevelopment = this.configService.get<string>('environment').toUpperCase() === 'DEVELOPMENT';
+    const isDevelopment =
+      this.configService.get<string>('environment').toUpperCase() ===
+      'DEVELOPMENT';
 
     const responseBody = {
       statusCode: status,

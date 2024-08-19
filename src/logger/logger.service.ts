@@ -1,5 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { createLogger, format, transports, Logger as WinstonLogger } from 'winston';
+import {
+  createLogger,
+  format,
+  transports,
+  Logger as WinstonLogger,
+} from 'winston';
 import { ConfigService } from '@nestjs/config';
 import { utilities as nestWinstonModuleUtilities } from 'nest-winston';
 
@@ -10,7 +15,10 @@ export class LoggerService {
 
   constructor(private readonly configService: ConfigService) {
     // Declare the array with a union type that includes ConsoleTransportInstance and FileTransportInstance
-    const transportsArray: (transports.ConsoleTransportInstance | transports.FileTransportInstance)[] = [
+    const transportsArray: (
+      | transports.ConsoleTransportInstance
+      | transports.FileTransportInstance
+    )[] = [
       new transports.Console({
         format: format.combine(
           format.timestamp(),
@@ -24,9 +32,7 @@ export class LoggerService {
 
     // Conditionally add a file transport based on the configuration
     if (this.configService.get('log.file')) {
-      transportsArray.push(
-        new transports.File({ filename: 'combined.log' })
-      );
+      transportsArray.push(new transports.File({ filename: 'combined.log' }));
     }
 
     const level: string = this.configService.get<string>('log.level') || 'info';

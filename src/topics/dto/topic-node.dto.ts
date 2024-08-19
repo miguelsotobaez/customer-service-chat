@@ -11,19 +11,20 @@ export class TopicNodeDto {
   name: string;
 
   @ApiProperty({
-    description: 'List of sub-topics or suggestions related to the current topic',
+    description:
+      'List of sub-topics or suggestions related to the current topic',
     type: [TopicNodeDto],
     required: false,
     example: [
       {
         name: 'Soccer',
-        suggestions: []
-      }
+        suggestions: [],
+      },
     ],
   })
   @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
-  @Type(() => TopicNodeDto)  // Indicates that `suggestions` is an array of `TopicNodeDto`
+  @Type(() => TopicNodeDto) // Indicates that `suggestions` is an array of `TopicNodeDto`
   suggestions?: TopicNodeDto[];
 }

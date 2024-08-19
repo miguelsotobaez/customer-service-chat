@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CustomerService } from './customer.service';
 import { CustomerServiceRepresentativeDto } from './dto/customer-service-representative.dto';
@@ -13,12 +13,12 @@ export class CustomerController {
     description: 'Available customer service representative',
     type: CustomerServiceRepresentativeDto,
   })
-  @ApiResponse({ 
-    status: 404, 
-    description: 'No representatives available', 
+  @ApiResponse({
+    status: 404,
+    description: 'No representatives available',
     schema: {
-      example: { message: 'No representatives are available at the moment.' }
-    }
+      example: { message: 'No representatives are available at the moment.' },
+    },
   })
   @Get('available')
   async getAvailableRepresentative(): Promise<CustomerServiceRepresentativeDto> {

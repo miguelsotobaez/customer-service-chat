@@ -40,7 +40,9 @@ describe('AppController (e2e)', () => {
         expect(res.body.length).toBeGreaterThan(0);
 
         // Verifica que hay un tema 'Football'
-        const footballTopic = res.body.find((topic) => topic.name === 'Football');
+        const footballTopic = res.body.find(
+          (topic) => topic.name === 'Football',
+        );
         expect(footballTopic).toBeDefined();
         expect(footballTopic).toHaveProperty('suggestions');
         expect(footballTopic.suggestions.length).toBeGreaterThan(0);

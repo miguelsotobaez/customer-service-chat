@@ -12,13 +12,19 @@ export class CustomerService {
   ];
 
   getAvailableRepresentative(): CustomerServiceRepresentativeDto | null {
-    const availableRepresentatives = this.representatives.filter(rep => rep.isAvailable);
+    const availableRepresentatives = this.representatives.filter(
+      (rep) => rep.isAvailable,
+    );
 
     if (availableRepresentatives.length === 0) {
-      throw new NotFoundException('No representatives are available at the moment.');
+      throw new NotFoundException(
+        'No representatives are available at the moment.',
+      );
     }
 
-    const randomIndex = Math.floor(Math.random() * availableRepresentatives.length);
+    const randomIndex = Math.floor(
+      Math.random() * availableRepresentatives.length,
+    );
     return availableRepresentatives[randomIndex];
   }
 }

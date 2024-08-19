@@ -19,12 +19,12 @@ describe('TopicsService', () => {
     expect(topics.length).toBeGreaterThan(0);
 
     // Verificar que la estructura del árbol de temas es correcta
-    const footballTopic = topics.find(topic => topic.name === 'Football');
+    const footballTopic = topics.find((topic) => topic.name === 'Football');
     expect(footballTopic).toBeDefined();
     expect(footballTopic.suggestions).toBeDefined();
     expect(footballTopic.suggestions.length).toBeGreaterThan(0);
 
-    const booksTopic = topics.find(topic => topic.name === 'Books');
+    const booksTopic = topics.find((topic) => topic.name === 'Books');
     expect(booksTopic).toBeDefined();
     expect(booksTopic.suggestions).toBeDefined();
     expect(booksTopic.suggestions.length).toBeGreaterThan(0);
