@@ -4,12 +4,16 @@ import { CustomerServiceRepresentativeDto } from './dto/customer-service-represe
 @Injectable()
 export class CustomerService {
   private representatives: CustomerServiceRepresentativeDto[] = [
-    { id: 1, name: 'Alice', isAvailable: true },
-    { id: 2, name: 'Bob', isAvailable: false },
-    { id: 3, name: 'Charlie', isAvailable: true },
-    { id: 4, name: 'Alan', isAvailable: true },
-    { id: 5, name: 'Sophia', isAvailable: true },
+    { id: 1, name: 'Alice', isAvailable: this.setIsAvailable() },
+    { id: 2, name: 'Bob', isAvailable: this.setIsAvailable() },
+    { id: 3, name: 'Charlie', isAvailable: this.setIsAvailable() },
+    { id: 4, name: 'Alan', isAvailable: this.setIsAvailable() },
+    { id: 5, name: 'Sophia', isAvailable: this.setIsAvailable() },
   ];
+
+  setIsAvailable() {
+    return Boolean(Math.random());
+  }
 
   getAvailableRepresentative(): CustomerServiceRepresentativeDto | null {
     const availableRepresentatives = this.representatives.filter(
