@@ -8,13 +8,11 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { utilities as nestWinstonModuleUtilities } from 'nest-winston';
 
-// Ensure transportsArray can accept different types of transport instances
 @Injectable()
 export class LoggerService {
   private readonly logger: WinstonLogger;
 
   constructor(private readonly configService: ConfigService) {
-    // Declare the array with a union type that includes ConsoleTransportInstance and FileTransportInstance
     const transportsArray: (
       | transports.ConsoleTransportInstance
       | transports.FileTransportInstance
@@ -30,7 +28,6 @@ export class LoggerService {
       }),
     ];
 
-    // Conditionally add a file transport based on the configuration
     if (this.configService.get('log.file')) {
       transportsArray.push(new transports.File({ filename: 'combined.log' }));
     }
@@ -71,7 +68,6 @@ export class LoggerService {
     if (headers) {
       metadata['domain'] = headers['x-csc-domain'] || 'unknown';
     }
-    // Add more metadata if needed
     return metadata;
   }
 }

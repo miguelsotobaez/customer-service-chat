@@ -25,6 +25,6 @@ export class TopicNodeDto {
   @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
-  @Type(() => TopicNodeDto) // Indicates that `suggestions` is an array of `TopicNodeDto`
+  @Type(() => TopicNodeDto)
   suggestions?: TopicNodeDto[];
 }

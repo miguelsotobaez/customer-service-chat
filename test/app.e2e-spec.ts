@@ -1,4 +1,3 @@
-// test/app.e2e-spec.ts
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
@@ -39,7 +38,6 @@ describe('AppController (e2e)', () => {
         expect(Array.isArray(res.body)).toBe(true);
         expect(res.body.length).toBeGreaterThan(0);
 
-        // Verifica que hay un tema 'Football'
         const footballTopic = res.body.find(
           (topic) => topic.name === 'Football',
         );

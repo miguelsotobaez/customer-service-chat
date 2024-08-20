@@ -15,7 +15,6 @@ describe('CustomerService', () => {
   });
 
   it('should return the first available representative', () => {
-    // Mock the method to return a specific representative
     jest.spyOn(service, 'getAvailableRepresentative').mockReturnValue({
       id: 1,
       name: 'Alice',
@@ -26,11 +25,10 @@ describe('CustomerService', () => {
       service.getAvailableRepresentative();
     expect(availableRep).toBeDefined();
     expect(availableRep.isAvailable).toBe(true);
-    expect(availableRep.name).toBe('Alice'); // Expect 'Alice'
+    expect(availableRep.name).toBe('Alice');
   });
 
   it('should throw NotFoundException if no representative is available', () => {
-    // Manipula el array interno de representatives para que todos estén no disponibles
     service['representatives'].forEach((rep) => (rep.isAvailable = false));
 
     expect(() => service.getAvailableRepresentative()).toThrow(

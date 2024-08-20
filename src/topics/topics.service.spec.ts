@@ -18,7 +18,6 @@ describe('TopicsService', () => {
     expect(topics).toBeDefined();
     expect(topics.length).toBeGreaterThan(0);
 
-    // Verificar que la estructura del árbol de temas es correcta
     const footballTopic = topics.find((topic) => topic.name === 'Football');
     expect(footballTopic).toBeDefined();
     expect(footballTopic.suggestions).toBeDefined();

@@ -24,7 +24,7 @@ async function bootstrap() {
 
   // Enable versioning
   app.enableVersioning({
-    type: VersioningType.URI, // Uses version in the URI, e.g., '/v1/resource'
+    type: VersioningType.URI,
   });
 
   // Swagger setup for API documentation
